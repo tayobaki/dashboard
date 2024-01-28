@@ -11,22 +11,22 @@ export default function Active({ item, idx }) {
     setActive(id);
   };
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (
-  //       containerRef.current &&
-  //       !containerRef.current.contains(event.target)
-  //     ) {
-  //       setActive(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        setActive(false);
+      }
+    };
 
-  //   document.addEventListener("click", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
 
-  //   return () => {
-  //     document.removeEventListener("click", handleClickOutside);
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div ref={containerRef} onClick={() => handleClick(idx)} className="">
